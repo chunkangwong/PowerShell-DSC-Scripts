@@ -4,7 +4,7 @@
  
 # Define account types and their respective output file paths in a hashtable
 $accounts = @{ # Hashtable
-    "AD account 'Amtrak\EsriArcGIS'" = "D:\EsriInstall\passwordFiles\ADPassword.txt"
+    "AD account 'domain\svcArcGIS'" = "D:\EsriInstall\passwordFiles\ADPassword.txt"
     "MyEsri account 'temp'" = "D:\EsriInstall\passwordFiles\myesri.txt"
     "Portal account 'arcgisportal'" = "D:\EsriInstall\passwordFiles\arcgisportal.txt"
     "Server account 'arcgisadmin'" = "D:\EsriInstall\passwordFiles\arcgisadmin.txt"

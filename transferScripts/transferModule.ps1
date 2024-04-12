@@ -1,7 +1,9 @@
 # Brendan Bladdick
 #
 # this script is designed to transfer arcgis module to all the machines in the @arcgisservers block from a local directory on the machine that has the arcgis module
+
 # change the machine1, machine2 with your machines
+
 # Do not include the machine that has the arcgis module on it inside of the @arcgisservers block or it will remove your arcgis module
  
 $arcgisservers = @('machine1','machine2')

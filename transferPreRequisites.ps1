@@ -1,12 +1,10 @@
 # Brendan Bladdick
-#
-# this script is designed to transfer web adaptor pre-requisites to all the machines in the @arcgisservers block from a local directory on the machine that has the web adaptor pre-requisites
-# change the machine1, machine2 with your machines
-# Do not include the machine that has the web adaptor pre-requisites on it inside of the @arcgisservers block or it will remove your web adaptor pre-requisites
 
-$server = "arcgisweb24t"
-$mainDirectory = "EsriInstall"
-$subDirectory = "pre_requisites"
+# this script is designed to transfer web adaptor pre-requisites to the web server machine
+
+$server = "web server machine"
+$mainDirectory = "EsriInstall" #change this to the directory that contains the folder that contains the pre-requisites folder
+$subDirectory = "pre_requisites" #change this to the directory that contains the pre-requisites
 
 $targetDir = "\\$server\d$\$mainDirectory\$subDirectory"
 # Check if the target directory exists, create it if it doesn't

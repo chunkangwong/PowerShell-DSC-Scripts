@@ -1,11 +1,9 @@
 # Brendan Bladdick
-# 
-# 10/4/2022
 
 # This script sets the Local DSC configuration to Stop on Restart and to ApplyOnly so logs don't pile up
 
 #change the machine1, machine2 with your machines
-#if only one machine in deployment then can simply run the contents of the for loop
+#if only one machine in deployment then can simply run the contents of the invoke command
 $arcgisservers = @('machine1','machine2')
 
 foreach ($server in $arcgisservers) {

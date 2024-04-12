@@ -1,13 +1,15 @@
 # Brendan Bladdick
-#
+
 # this script is designed to transfer installables to all the machines in the @arcgisservers block from a local directory on the machine that has the installable
+
 # change the machine1, machine2 with your machines
+
 # Do not include the machine that has the install on it inside of the @arcgisservers block or it will remove your install
 
-$arcgisservers = @('arcgisdata27t', 'arcgishost26t', 'arcgisport25t', 'arcgislrs23t', 'arcgisimg28t', 'machine1','machine2')
+$arcgisservers = @('machine1','machine2')
 
-$mainDirectory = "EsriInstall"
-$subDirectory = "Installer"
+$mainDirectory = "EsriInstall" #change this to the directory that contains the folder that contains the install folder
+$subDirectory = "Installer" #change this to the directory that contains the installs
 
 $ScriptBlock = {
     param ($server, $mainDirectory, $subDirectory)

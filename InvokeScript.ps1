@@ -1,3 +1,5 @@
+# Brendan Bladdick
+
 # Invoking ArcGIS Configuration Script
 # Set Path to easily access logs (the location you run the Invoke from will be where the Logs show up)
 
