@@ -27,8 +27,8 @@ $jobs = $arcgisservers | ForEach-Object {
 # Wait for all jobs to complete
 $jobs | Wait-Job
 
-# Get the results of the jobs
-$results = $jobs | Receive-Job
+# Get the results of the jobs and print them
+$jobs | Receive-Job | ForEach-Object { Write-Host $_ }
 
 # Clean up the jobs
 $jobs | Remove-Job
