@@ -1,10 +1,8 @@
 # Brendan Bladdick
 
-# remove old modules from machines except for machine that you are running invoke command from
+# connects to each machine in the arcgisservers array and removes the old ArcGIS module from the machine then installs the new module
 
 # change the machine1, machine2 with your machines
-
-# connects to each machine in the arcgisservers array and removes the old ArcGIS module from the machine then installs the new module
 
 $arcgisservers = ("machine1","machine2")
 
