@@ -23,7 +23,6 @@ foreach ($server in $arcgisservers) {
         }
         LCMConfig;
         Set-DscLocalConfigurationManager -Path 'C:\Windows\System32\LCMConfig' -Force;
-        Get-DscLocalConfigurationManager -CimSession localhost;
         Write-Host 'Local DSC Configuration Manager is now set to ApplyOnly';
     }
     Write-Host "Disconnected from $server";
