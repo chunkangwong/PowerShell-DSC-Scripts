@@ -1,4 +1,4 @@
-ArcGIS PowerShell DSC Helper Scripts
+# ArcGIS PowerShell DSC Helper Scripts
 
 A series of [helper scripts](https://github.com/BrendanEsri/PowerShell-DSC-Scripts/tree/main) have been developed to assist with both setting up and configuring the PowerShell DSC environment, as well as making the ArcGIS deployment more standardized and seamless. Below is a brief description of some of them:
 
