@@ -16,7 +16,7 @@ A series of helper scripts have been developed to assist with both setting up an
     - This script will remove any ArcGIS Modules from the machines in the list and install the most up to date ArcGIS Module to each machine. If you do not want the most recent version, download the desired version from GitHub and utilize the script within the transferScripts folder that will transfer the module from the Orchestration machine to the list of remote servers in the $arcgisservers variable.
 
 - [**transferModule.ps1**](./2_settingUpArcGISModule/transferModule.ps1)
-    - this script will transfer the local arcgis PowerShell module (without upgrading it) to a list of remote servers provided in the script. This is useful if utilizing an older version of the PowerShell DSC ArcGIS Module. Make sure not to include the orchestrating machine in the list of $arcgisservers.
+    - this script will transfer the local arcgis PowerShell module (without upgrading it) to a list of remote servers provided in the script. This is useful if utilizing an older version of the PowerShell DSC ArcGIS Module. Make sure not to include the orchestrating machine in the list of $arcgisservers. It's important to note that if you have manually downloaded the arcgis module from the Github repository (instead of using the Install-Module command), you should right-click on the .zip file before unzipping it, go to Properties and check the "unblock" box, and then unzip the arcgis module file and place it in the PowerShell directory.
 
 ## [3_settingUpServerEnvironment folder](./3_settingUpServerEnvironment/)
 
