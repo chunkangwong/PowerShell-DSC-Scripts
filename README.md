@@ -20,6 +20,18 @@ A series of helper scripts have been developed to assist with both setting up an
 
 ## [3_settingUpServerEnvironment folder](./3_settingUpServerEnvironment/)
 
+- [**generatePwFiles.ps1**](./3_settingUpServerEnvironment/generatePwFiles.ps1)
+    - This script allows for the generation of the password files that can be used in place of hard-coded password values in the JSON configuration file. Note: Once you specify the location of the password files in the script and run the script, the password files cannot be moved, or they will break. This is intentional. So, decide where you’d like for them to be located, make sure that path is specified in the script as well as the JSON configuration file, and then run the script. Note that the password files can only be used by the user who created them on the machine they were created on, within the folder they were created. This is for security purposed. The password files only need to be created on the machine that is being used to orchestrate the Invoke-ArcGISConfiguration command.
+
+- [**setFirewallRulesAllowAge.ps1**](./3_settingUpServerEnvironment/setFirewallRulesAllowAge.ps1)
+    - This script sets up firewall rules on a list of specified machines to allow inbound traffic on designated ports. It is designed to facilitate the configuration of firewall settings for ArcGIS Enterprise by opening necessary ports for various services.
+
+- [**transferCertificates.ps1**](./3_settingUpServerEnvironment/transferCertificates.ps1)
+    - this script will transfer the contents of a ‘certificates’ folder on an orchestration machine, or the local machine to remote servers to be used for the deployment. Make sure not to include the orchestrating machine in the list of $arcgisservers.
+
+- [**transferLicenses.ps1**](./3_settingUpServerEnvironment/transferLicenses.ps1)
+    - this script will transfer the contents of a ‘licenses’ folder from a local location to a list of machines specified for each ArcGIS component. Make sure not to include the orchestrating machine in the list of $arcgisservers.
+
 ### [forDisconnectedEnvironments folder](./3_settingUpServerEnvironment/forDisconnectedEnvironments)
 These scripts can be used when the servers are disconnected from the internet, or if you're not planning on making use of the downloadSetups or download URL path parameters in the ArcGIS Module.
 
@@ -39,19 +51,6 @@ These scripts can be used when the servers are disconnected from the internet, o
 
 - [**setFirewallRulesBlockIpFilter.ps1**](./3_settingUpServerEnvironment/forMigrations/setFirewallRulesBlockIpFilter.ps1)
     - This script sets up a firewall rule on a list of specified machines to block inbound traffic from a list of specified IP addresses. It is intended to enhance security by preventing traffic from certain IP addresses in a specified environment.  This script is useful for migrations involving PowerShellDSC, specifically while setting up the target environment for migration to block unintended traffic to the new environment until its ready for use.
-
-[**generatePwFiles.ps1**](./3_settingUpServerEnvironment/generatePwFiles.ps1)
-    - This script allows for the generation of the password files that can be used in place of hard-coded password values in the JSON configuration file. Note: Once you specify the location of the password files in the script and run the script, the password files cannot be moved, or they will break. This is intentional. So, decide where you’d like for them to be located, make sure that path is specified in the script as well as the JSON configuration file, and then run the script. Note that the password files can only be used by the user who created them on the machine they were created on, within the folder they were created. This is for security purposed. The password files only need to be created on the machine that is being used to orchestrate the Invoke-ArcGISConfiguration command.
-
-[**setFirewallRulesAllowAge.ps1**](./3_settingUpServerEnvironment/setFirewallRulesAllowAge.ps1)
-    - This script sets up firewall rules on a list of specified machines to allow inbound traffic on designated ports. It is designed to facilitate the configuration of firewall settings for ArcGIS Enterprise by opening necessary ports for various services.
-
-[**transferCertificates.ps1**](./3_settingUpServerEnvironment/transferCertificates.ps1)
-    - this script will transfer the contents of a ‘certificates’ folder on an orchestration machine, or the local machine to remote servers to be used for the deployment. Make sure not to include the orchestrating machine in the list of $arcgisservers.
-
-[**transferLicenses.ps1**](./3_settingUpServerEnvironment/transferLicenses.ps1)
-    - this script will transfer the contents of a ‘licenses’ folder from a local location to a list of machines specified for each ArcGIS component. Make sure not to include the orchestrating machine in the list of $arcgisservers.
-
 
 ## [4_deployment folder](./4_deployment/)
 

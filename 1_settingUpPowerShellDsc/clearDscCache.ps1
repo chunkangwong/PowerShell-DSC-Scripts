@@ -11,7 +11,6 @@ foreach ($server in $arcgisservers) {
     Invoke-Command -Session $session -ScriptBlock {
         Write-Host 'clearing dsc config';
         Remove-DscConfigurationDocument -Stage Current, Pending, Previous -Verbose -Force;
-        Get-DscConfiguration -Stage Current, Pending, Previous -Verbose -Force;
         Write-Host 'cleared dsc config';
     }
     Write-Host "Disconnected from $server";
