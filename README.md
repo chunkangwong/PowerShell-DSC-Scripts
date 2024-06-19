@@ -71,6 +71,9 @@ These scripts can be used when the servers are disconnected from the internet, o
 - [**stopServices.ps1**](./5_troubleshooting/stopServices.ps1)
     - This script remotely stops a Windows Service specified.  This may be helpful with general troubleshooting.
 
+- [**taskKillWindowsInstaller.ps1**](./5_troubleshooting/taskKillWindowsInstaller.ps1)
+    - This script remotely checks to see if the Windows Installer process is running, and if it is, it kills it.  Sometimes when a PowerShell deployment fails, it might fail during the installation of one of the ArcGIS components, leaving the installer process in a hung state.  If the Windows Installer process is not killed in these cases, any subsequent attempts to invoke the PowerShell command to install will also fail because the machine will assume another installation is still in progress.  So this script helps by checking to see if there is a hung installer process (ideally ran after a failure), and then removes the hung installer process if it exists to prepare the environment for the next invoke attempt.
+
 
 ## **How To Run These Scripts**
 These scripts can be run by opening a Windows PowerShell ISE session as an Administrator, and then choosing the "Open Script" button (second from the left) from the toolbar.  The "Run" button runs the script and is located towards the middle of the same toolbar.  As a general note, you must "Save" a script before running it after making any changes, and you will be prompted to save if you do not do so before clicking "Run".
