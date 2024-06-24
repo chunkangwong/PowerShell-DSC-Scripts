@@ -15,12 +15,18 @@ $trustedHostsString = $trustedHosts -join ','
 # Script block to execute on each machine
 $scriptBlock = {
     param($trustedHostsString)
+    $input = "@{TrustedHosts=`"$trustedHostsString`"}"
     try {
-        winrm set winrm/config/client '@{TrustedHosts="' + $trustedHostsString + '"}'
+        winrm set winrm/config/client $input
         Write-Host "TrustedHosts set to: $trustedHostsString"
     } catch {
         Write-Host "An error occurred: $_"
     }
+
+    # Output the current winrm/config/client configuration
+    $currentConfig = winrm get winrm/config/client
+    Write-Host "Current winrm/config/client configuration:"
+    $currentConfig | ForEach-Object { Write-Host $_ }
 }
 
 # Execute the script block on each target machine
