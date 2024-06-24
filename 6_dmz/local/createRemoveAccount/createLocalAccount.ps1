@@ -1,15 +1,15 @@
 # Create a local user account on a Windows machine
 
 # Variables
-$username = "NewLocalUser"
-$password = ConvertTo-SecureString "P@ssw0rd!" -AsPlainText -Force
-$fullName = "New Local User"
+$username = "dmzUser"
+#$password = ConvertTo-SecureString "P@ssw0rd!" -AsPlainText -Force
+$password = Read-Host "Enter password for the new user" -AsSecureString
 $description = "Local user for DMZ and Non-DMZ machines"
 
 try {
     # Create local user
     if (-not (Get-LocalUser -Name $username -ErrorAction SilentlyContinue)) {
-        New-LocalUser -Name $username -Password $password -FullName $fullName -Description $description
+        New-LocalUser -Name $username -Password $password -Description $description
         Write-Host "Local user $username created successfully."
     } else {
         Write-Host "Local user $username already exists."

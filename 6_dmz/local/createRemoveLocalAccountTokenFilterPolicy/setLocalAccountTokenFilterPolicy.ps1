@@ -10,7 +10,7 @@ try {
         Write-Output "LocalAccountTokenFilterPolicy registry entry created and set to 1."
     } else {
         Set-ItemProperty -Path $regPath -Name $regName -Value $regValue
-        Write-Output "LocalAccountTokenFilterPolicy registry entry already existed and was updated to 1."
+        Write-Output "LocalAccountTokenFilterPolicy registry entry already existed and if it was not set to 1, it was updated to 1."
     }
 } catch {
     Write-Output "An error occurred: $_"

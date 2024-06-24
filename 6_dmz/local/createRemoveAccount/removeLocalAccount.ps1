@@ -1,7 +1,7 @@
 # This script removes a local user from the Administrators group and then deletes the user account from the local machine.
 
 # Variables
-$username = "NewLocalUser"
+$username = "dmzUser"
 
 try {
     # Remove user from the Administrators group (if added)
