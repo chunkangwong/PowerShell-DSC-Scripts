@@ -2,8 +2,8 @@
  
 # script to create password files for the accounts and certificates
  
-# Define account types and their respective output file paths in a hashtable
-$accounts = @{ # Hashtable
+# Define account types and their respective output file paths in an ordered hashtable
+$accounts = [ordered]@{ # Hashtable
     "AD account 'domain\svcArcGIS'" = "D:\EsriInstall\passwordFiles\ADPassword.txt"
     "MyEsri account 'temp'" = "D:\EsriInstall\passwordFiles\myesri.txt"
     "Portal account 'arcgisportal'" = "D:\EsriInstall\passwordFiles\arcgisportal.txt"
