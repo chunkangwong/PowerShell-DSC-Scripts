@@ -11,7 +11,7 @@ $parameters = @{
     param($ports)
     $ports | ForEach-Object {
       # Create a firewall rule to allow inbound traffic on the specified ports above
-      New-NetFirewallRule -DisplayName "Allow ArcGIS Enterprise Ports In" -Direction Inbound -Action Allow -Protocol TCP -LocalPort $_
+      New-NetFirewallRule -DisplayName "Allow ArcGIS Enterprise Ports In" -Direction Inbound -Action Allow -Protocol TCP -LocalPort $_ -Profile Domain, Private
     }
   }
   ArgumentList = ($ports)
