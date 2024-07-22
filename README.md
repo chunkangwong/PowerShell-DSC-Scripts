@@ -40,26 +40,26 @@ The scripts in this folder are designed to be run for the 'local' or orchestrati
 
 ##### [createRemoveAccount folder](./3_settingUpServerEnvironment/dmz/local/createRemoveAccount/)
 
-- ###### [**createLocalAccount.ps1**](./3_settingUpServerEnvironment/dmz/local/createRemoveAccount/createLocalAccount.ps1)
+- [**createLocalAccount.ps1**](./3_settingUpServerEnvironment/dmz/local/createRemoveAccount/createLocalAccount.ps1)
     - This script will create a local user account on the local server.
 
-- ###### [**removeLocalAccount.ps1**](./3_settingUpServerEnvironment/dmz/local/createRemoveAccount/removeLocalAccount.ps1)
+- [**removeLocalAccount.ps1**](./3_settingUpServerEnvironment/dmz/local/createRemoveAccount/removeLocalAccount.ps1)
     - This script will remove a local user account from the Administrators group and then delete the account on the local server.
 
 ##### [createRemoveLocalAccountTokenFilterPolicy folder](./3_settingUpServerEnvironment/dmz/local/createRemoveLocalAccountTokenFilterPolicy/)
 
-- ###### [**setLocalAccountTokenFilterPolicy.ps1**](./3_settingUpServerEnvironment/dmz/local/createRemoveLocalAccountTokenFilterPolicy/setLocalAccountTokenFilterPolicy.ps1)
+- [**setLocalAccountTokenFilterPolicy.ps1**](./3_settingUpServerEnvironment/dmz/local/createRemoveLocalAccountTokenFilterPolicy/setLocalAccountTokenFilterPolicy.ps1)
     - This script will create a LocalAccountTokenFilterPolicy and set the value to 1.  What this does is grant remote connections from all local members of the Administrators group full high-integrity tokens during negotiation.  This should only be used on a temporary basis while deploying using PowerShellDSC.  After the deployment is complete, the corresponding removeLocalAccountTokenFilterPolicy.ps1 script should be used to remove the policy.
 
-- ###### [**removeLocalAccountTokenFilterPolicy.ps1**](./3_settingUpServerEnvironment/dmz/local/createRemoveLocalAccountTokenFilterPolicy/removeLocalAccountTokenFilterPolicy.ps1)
+- [**removeLocalAccountTokenFilterPolicy.ps1**](./3_settingUpServerEnvironment/dmz/local/createRemoveLocalAccountTokenFilterPolicy/removeLocalAccountTokenFilterPolicy.ps1)
     - This script will remove a LocalAccountTokenFilterPolicy.  What this policy does is grant remote connections from all local members of the Administrators group full high-integrity tokens during negotiation.  After the PowerShellDSC deployment is complete, this policy should be removed as an additional security measure.
 
 ##### [createRemoveTrustedHosts folder](./3_settingUpServerEnvironment/dmz/local/createRemoveTrustedHosts/)
 
-- ###### [**addTrustedHosts.ps1**](./3_settingUpServerEnvironment/dmz/local/createRemoveLocalAccountTokenFilterPolicy/addTrustedHosts.ps1)
+- [**addTrustedHosts.ps1**](./3_settingUpServerEnvironment/dmz/local/createRemoveLocalAccountTokenFilterPolicy/addTrustedHosts.ps1)
     - This script will create a comma-separated string of IP addresses and hostnames and sets the TrustedHosts configuration setting for WinRM on a local server.
 
-- ###### [**removeTrustedHosts.ps1**](./3_settingUpServerEnvironment/dmz/local/createRemoveLocalAccountTokenFilterPolicy/removeTrustedHosts.ps1)
+- [**removeTrustedHosts.ps1**](./3_settingUpServerEnvironment/dmz/local/createRemoveLocalAccountTokenFilterPolicy/removeTrustedHosts.ps1)
     - This script will reset the TrustedHosts list on the local server back to its default value, which is an empty list.
 
 #### [remote folder](./3_settingUpServerEnvironment/dmz/remote/)
@@ -67,26 +67,26 @@ The scripts in this folder are designed to be run on the orchestration/deploymen
 
 ##### [createRemoveAccount folder](./3_settingUpServerEnvironment/dmz/remote/createRemoveAccount/)
 
-- ###### [**createLocalAccount.ps1**](./3_settingUpServerEnvironment/dmz/remote/createRemoveAccount/createLocalAccount.ps1)
+- [**createLocalAccount.ps1**](./3_settingUpServerEnvironment/dmz/remote/createRemoveAccount/createLocalAccount.ps1)
     - This script will create a local user account on the remote server(s) passed as a list in the script.
 
-- ###### [**removeLocalAccount.ps1**](./3_settingUpServerEnvironment/dmz/remote/createRemoveAccount/removeLocalAccount.ps1)
+- [**removeLocalAccount.ps1**](./3_settingUpServerEnvironment/dmz/remote/createRemoveAccount/removeLocalAccount.ps1)
     - This script will remove a local user account from the Administrators group and then delete the account on the remote server(s) passed as a list in the script.
 
 ##### [createRemoveLocalAccountTokenFilterPolicy folder](./3_settingUpServerEnvironment/dmz/remote/createRemoveLocalAccountTokenFilterPolicy/)
 
-- ###### [**setLocalAccountTokenFilterPolicy.ps1**](./3_settingUpServerEnvironment/dmz/remote/createRemoveLocalAccountTokenFilterPolicy/setLocalAccountTokenFilterPolicy.ps1)
+- [**setLocalAccountTokenFilterPolicy.ps1**](./3_settingUpServerEnvironment/dmz/remote/createRemoveLocalAccountTokenFilterPolicy/setLocalAccountTokenFilterPolicy.ps1)
     - This script will create a LocalAccountTokenFilterPolicy and set the value to 1.  What this does is grant remote connections from all local members of the Administrators group full high-integrity tokens during negotiation.  This should only be used on a temporary basis while deploying using PowerShellDSC.  After the deployment is complete, the corresponding removeLocalAccountTokenFilterPolicy.ps1 script should be used to remove the policy.
 
-- ###### [**removeLocalAccountTokenFilterPolicy.ps1**](./3_settingUpServerEnvironment/dmz/remote/createRemoveLocalAccountTokenFilterPolicy/removeLocalAccountTokenFilterPolicy.ps1)
+- [**removeLocalAccountTokenFilterPolicy.ps1**](./3_settingUpServerEnvironment/dmz/remote/createRemoveLocalAccountTokenFilterPolicy/removeLocalAccountTokenFilterPolicy.ps1)
     - This script will remove a LocalAccountTokenFilterPolicy.  What this policy does is grant remote connections from all local members of the Administrators group full high-integrity tokens during negotiation.  After the PowerShellDSC deployment is complete, this policy should be removed as an additional security measure.
 
 ##### [createRemoveTrustedHosts folder](./3_settingUpServerEnvironment/dmz/remote/createRemoveTrustedHosts/)
 
-- ###### [**addTrustedHosts.ps1**](./3_settingUpServerEnvironment/dmz/remote/createRemoveLocalAccountTokenFilterPolicy/addTrustedHosts.ps1)
+- [**addTrustedHosts.ps1**](./3_settingUpServerEnvironment/dmz/remote/createRemoveLocalAccountTokenFilterPolicy/addTrustedHosts.ps1)
     - This script will create a comma-separated string of IP addresses and hostnames and sets the TrustedHosts configuration setting for WinRM on a remote server(s) passed as a list in the script.
 
-- ###### [**removeTrustedHosts.ps1**](./3_settingUpServerEnvironment/dmz/remote/createRemoveLocalAccountTokenFilterPolicy/removeTrustedHosts.ps1)
+- [**removeTrustedHosts.ps1**](./3_settingUpServerEnvironment/dmz/remote/createRemoveLocalAccountTokenFilterPolicy/removeTrustedHosts.ps1)
     - This script will reset the TrustedHosts list, for each remote server passed in the script, back to its default value, which is an empty list.
 
 ### [forDisconnectedEnvironments folder](./3_settingUpServerEnvironment/forDisconnectedEnvironments)
