@@ -29,6 +29,9 @@ A series of helper scripts have been developed to assist with both setting up an
 - [**transferLicenses.ps1**](./3_settingUpServerEnvironment/transferLicenses.ps1)
     - this script will transfer the contents of a ‘licenses’ folder from a local location to a list of machines specified for each ArcGIS component. Make sure not to include the orchestrating machine in the list of $arcgisservers.
 
+- [**transferOdbc.ps1**](./3_settingUpServerEnvironment/transferOdbc.ps1)
+    - this script will transfer the contents of an ‘odbc’ folder from a local location to a list of machines specified for each ArcGIS component. Make sure not to include the orchestrating machine in the list of $arcgisservers.
+
 - [**avExceptions.ps1**](./3_settingUpServerEnvironment/avExceptions.ps1)
     - This script excludes common AGE folders from the Windows Defender Firewall program. Note that some environments may have this setting managed by GPO and/or may have external Firewalls, please discuss with IT on how the Firewall environment is being managed.
 
