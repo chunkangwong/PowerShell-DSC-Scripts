@@ -23,14 +23,17 @@ A series of helper scripts have been developed to assist with both setting up an
 - [**generatePwFiles.ps1**](./3_settingUpServerEnvironment/generatePwFiles.ps1)
     - This script allows for the generation of the password files that can be used in place of hard-coded password values in the JSON configuration file. Note: Once you specify the location of the password files in the script and run the script, the password files cannot be moved, or they will break. This is intentional. So, decide where you’d like for them to be located, make sure that path is specified in the script as well as the JSON configuration file, and then run the script. Note that the password files can only be used by the user who created them on the machine they were created on, within the folder they were created. This is for security purposed. The password files only need to be created on the machine that is being used to orchestrate the Invoke-ArcGISConfiguration command.
 
-- [**setFirewallRulesAllowAge.ps1**](./3_settingUpServerEnvironment/setFirewallRulesAllowAge.ps1)
-    - This script sets up firewall rules on a list of specified machines to allow inbound traffic on designated ports. It is designed to facilitate the configuration of firewall settings for ArcGIS Enterprise by opening necessary ports for various services.
-
 - [**transferCertificates.ps1**](./3_settingUpServerEnvironment/transferCertificates.ps1)
     - this script will transfer the contents of a ‘certificates’ folder on an orchestration machine, or the local machine to remote servers to be used for the deployment. Make sure not to include the orchestrating machine in the list of $arcgisservers.
 
 - [**transferLicenses.ps1**](./3_settingUpServerEnvironment/transferLicenses.ps1)
     - this script will transfer the contents of a ‘licenses’ folder from a local location to a list of machines specified for each ArcGIS component. Make sure not to include the orchestrating machine in the list of $arcgisservers.
+
+- [**avExceptions.ps1**](./3_settingUpServerEnvironment/avExceptions.ps1)
+    - This script excludes common AGE folders from the Windows Defender Firewall program. Note that some environments may have this setting managed by GPO and/or may have external Firewalls, please discuss with IT on how the Firewall environment is being managed.
+
+- [**setFirewallRulesAllowAge.ps1**](./3_settingUpServerEnvironment/setFirewallRulesAllowAge.ps1)
+    - This script sets up firewall rules on a list of specified machines to allow inbound traffic on designated ports. It is designed to facilitate the configuration of firewall settings for ArcGIS Enterprise by opening necessary ports for various services.
 
 ### [dmz folder](./3_settingUpServerEnvironment/dmz)
 These scripts can be used when there are components to install and configure with PowerShellDSC that reside inside of a DMZ.
@@ -111,8 +114,11 @@ These scripts can be used when the servers are disconnected from the internet, o
 
 ## [4_deployment folder](./4_deployment/)
 
-- [**InvokeScript.ps1**](./4_deployment/InvokeScript.ps1)
+- [**InvokeScript_Install.ps1**](./4_deployment/InvokeScript_Install.ps1)
     - This script starts the ArcGIS deployment in PowerShell. It first changes the directory to a path where logs can be accessed easily (such as within the folder structure where the rest of the deployment files are located). Then, it runs the Invoke-ArcGISConfiguration command with the configuration file. You can change the -Mode switch to one of the other options \[Install | InstallLicense | InstallLicenseConfigure | Uninstall | Upgrade | WebGISDRExport | WebGISDRImport\] to adjust to what you’d like the Invoke command to do.
+
+- [**InvokeScript_Upgrade.ps1**](./4_deployment/InvokeScript_Upgrade.ps1)
+    - This script starts the upgrade of the ArcGIS deployment in PowerShell. It first changes the directory to a path where logs can be accessed easily (such as within the folder structure where the rest of the deployment files are located). Then, it runs the Invoke-ArcGISConfiguration command with the configuration file. You can add all of the federated ArcGIS Servers' JSON files to this command as seen in the example in the code to upgrade the entire deployment in one command.
 
 ## [5_troubleshooting folder](./5_troubleshooting/)
 
