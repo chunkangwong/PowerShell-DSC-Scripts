@@ -11,6 +11,9 @@ A series of helper scripts have been developed to assist with both setting up an
 - [**localLcmSet.ps1**](./1_settingUpPowerShellDsc/localLcmSet.ps1)
     - This script sets the local DSC configuration by updating the LCM (local configuration manager) for each machine to ‘ApplyOnly’ configuration mode, and ‘StopConfiguration’ action after reboot. The ‘ApplyOnly’ configuration mode is not the default LCM setting but works best with PowerShell DSC deployments like we use for installing and upgrading Enterprise. What it does is specify that the LCM applies the configuration only, and then does not continue to monitor for changes and write logs about any drift. The ‘ApplyOnly’ setting essentially says “do what the script is telling you to do right now, and then nothing else until another script tells you to do something else, explicitly”. The ‘StopConfiguration’ setting for the action after reboot says that in the event the machine gets rebooted, the process will be stopped and upon reboot, the DSC process will not try to restart automatically.  Run this script after running the clearDscCache.ps1 script to reset the DSC environment variables.
 
+- [**enterPSSession.ps1**](./1_settingUpPowerShellDsc/enterPSSession.ps1)
+    - This script attempts to connect to the remote server specified, and then open a new PowerShell session on that server.  This script can be helpful for testing general connectivity between an orchestration or deployment server and a remote server that it's using PowerShellDSC to control or configure before attempting to deploy with PowerShellDSC.  This script can also be used for troubleshooting connectivity issues between the orchestration server and other servers in the deployment.
+
 ## [2_settingUpArcgisModule folder](./2_settingUpArcgisModule/)
 <mark>The scripts in this folder should be run situationally, with the help of the descriptions provided below.  You may need to use just one or a combination of them in your deployment</mark>
 
@@ -144,9 +147,6 @@ The scripts in this folder are designed to be run on the orchestration/deploymen
 
 ## [5_troubleshooting folder](./5_troubleshooting/)
 <mark>The scripts in this folder can be used for troubleshooting issues with your PowerShell deployment and should be used as-needed.</mark>
-
-- [**enterPSSession.ps1**](./5_troubleshooting/enterPSSession.ps1)
-    - This script attempts to connect to the remote server specified, and then open a new PowerShell session on that server.  This script can be helpful for testing general connectivity between an orchestration or deployment server, and a remote server that it's having problems connecting to or using PowerShellDSC to control or configure.
 
 - [**restartServers.ps1**](./5_troubleshooting/restartServers.ps1)
     - This script remotely reboots servers provided in a list.  When troubleshooting an issue with your deployment, or if you encounter a situation where the PowerShell deploment fails and stalls mid-installation, it's sometimes helpful to reboot the server to clear out any pending actions/processes or settings.
