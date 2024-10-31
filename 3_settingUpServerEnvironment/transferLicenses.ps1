@@ -7,6 +7,7 @@
 # Do not include the machine that has the licenses on it inside of the @arcgisservers block or it will remove your licenses
 
 $arcgisservers = @('machine1','machine2')
+# make a better script - use extra var for remote machines vs local and run an if remote then do this
 
 $mainDirectory = "EsriInstall" #change this to the directory that contains the folder that contains the licenses folder
 $subDirectory = "licenses" #change this to the directory that contains the licenses

@@ -15,8 +15,11 @@ $jobs = $arcgisservers | ForEach-Object {
         $session = New-PSSession -ComputerName $server
         Invoke-Command -Session $session -ScriptBlock {
             Remove-Item -Path "C:\Program Files\WindowsPowerShell\Modules\ArcGIS" -Recurse -Force -ErrorAction SilentlyContinue
-            #install new module to this machine
+            # Set the security protocol to TLS 1.2
+            [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+            # Install NuGet provider
             Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+            #install new module to this machine
             Install-Module ArcGIS -Force
         }
     } -ArgumentList $server

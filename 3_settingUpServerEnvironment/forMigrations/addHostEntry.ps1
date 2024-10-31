@@ -2,10 +2,10 @@
 
 # Define the host entry details to add
 $ipAddress = "10.0.0.1" # IP address to map to the DNS name and machine name
-$machineName = "machine1" # Name of the machine whose IP address is being mapped
+$machineName = "machine1" # Name of the machine whose IP address is being mapped (FQDN)
 $dnsName = "host.domain.com" # DNS name to map to the IP address
 
-# List of target machine names/IP addresses
+# List of target machine names to modify the hosts file
 $targetMachines = @("machine1", "machine2", "machine3", "machine4")
 
 # Loop through each target machine

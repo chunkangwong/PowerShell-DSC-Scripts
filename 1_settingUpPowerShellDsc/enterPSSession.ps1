@@ -3,7 +3,16 @@
 #If successful, this script should allow you to enter a PowerShell session on the remote computer specified.
 #change the 'server1' text with your machine name
 
+$connectToThisServer = 'server1'
 
-Enter-PSSession -ComputerName 'server1'
-Exit-PSSession
-Write-Output "WinRM appears to be working between this machine and the server you entered"
+try {
+    Enter-PSSession -ComputerName $connectToThisServer -ErrorAction Stop
+    Exit-PSSession
+    
+    Write-Host "WinRM appears to be working between this machine and the server you entered." -ForegroundColor Green
+} catch {
+    Write-Host "WinRM test failed." -ForegroundColor Red
+    
+    Write-Host "Details: $_" -ForegroundColor Yellow
+}
+
