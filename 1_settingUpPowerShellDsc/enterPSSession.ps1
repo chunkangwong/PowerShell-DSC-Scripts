@@ -3,16 +3,17 @@
 #If successful, this script should allow you to enter a PowerShell session on the remote computer specified.
 #change the 'server1' text with your machine name
 
-$connectToThisServer = 'server1'
-
-try {
-    Enter-PSSession -ComputerName $connectToThisServer -ErrorAction Stop
-    Exit-PSSession
+$arcgisservers = @('machine1', 'machine2')
+foreach ($server in $arcgisservers) {
+    try {
+        Enter-PSSession -ComputerName $server -ErrorAction Stop
+        Exit-PSSession
     
-    Write-Host "WinRM appears to be working between this machine and the server you entered." -ForegroundColor Green
-} catch {
-    Write-Host "WinRM test failed." -ForegroundColor Red
+        Write-Host "WinRM appears to be working between this machine and the server you entered." -ForegroundColor Green
+    }
+    catch {
+        Write-Host "WinRM test failed." -ForegroundColor Red
     
-    Write-Host "Details: $_" -ForegroundColor Yellow
+        Write-Host "Details: $_" -ForegroundColor Yellow
+    }
 }
-
